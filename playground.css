@@ -1,0 +1,20 @@
+#playground {
+  border: black 3px solid;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 86vw;
+  height: 86vh;
+  z-index: -1;
+}
+
+#main {
+  background-color: rgb(210, 210, 210);
+  position: absolute;
+  left: 200px;
+  top: 200px;
+  width: 200px;
+  height: 200px;
+  box-shadow: -4px 6px 3px rgba(20, 20, 20, 0.7);
+}

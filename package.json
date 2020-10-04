@@ -1,0 +1,16 @@
+{
+  "name": "drag-and-scale-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "playground.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.4.2",
+    "puppeteer": "^5.3.1"
+  }
+}
