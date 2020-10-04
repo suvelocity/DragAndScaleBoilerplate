@@ -18,3 +18,20 @@
   height: 200px;
   box-shadow: -4px 6px 3px rgba(20, 20, 20, 0.7);
 }
+
+#header {
+  background-color: rgb(70, 70, 70);
+  position: relative;
+  width: inherit;
+  margin: auto;
+  padding: 8px 0;
+  max-height: 20%;
+  font-size: 2vh;
+  text-align: center;
+  color: white;
+}
+
+#header:hover {
+  cursor: move;
+}
+
