@@ -1,6 +1,9 @@
 test("package.json does not include any extra libraries ", () => {
   const pack = require("../package.json");
-  const expectedDependencies = ["jest", "puppeteer"];
+  const expectedDependencies = [
+    "jest",
+    "puppeteer",
+  ];
 
   const isDependeciesClean = Object.keys(pack.dependencies)
     .map((key) => expectedDependencies.includes(key))
