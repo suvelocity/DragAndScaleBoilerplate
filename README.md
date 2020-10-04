@@ -1,24 +1,49 @@
 # Drag & Scale Challenge
 Show your dominance in front end vanilla JavaScript by creating a movable scaleable object!
 
-## Requirements
-Use the prepared tamplate and save it in your solution repo under index.html.
-Your'e allowed to add any element to the file as long as it follows the following requirements:
+## Instructions
+Clone [this](https://github.com/suvelocity/DragAndScaleBoilerplate) repository to your computer, which contains the following:
 
-* Your solution should have an element with the id="playground" streching over most of the window.
-* Inside "playground" you should have an element with the id="main".
-* Inside "main" you should have an element with the id "header".
-* When pressing the mouse-left-button over "header" and daragging it, the "main" element should move accordingly.
-* When the mouse isn't preesed nothing should appen.
-* The "main" element shouldn't move beyond the "playground" borders. exmpale: if "main" touches the right border it stops moving right but can still move any other direction.
-* When pressing the mouse-left-button over "main" less then 5px from it's border (towards the center), and then dragging, the border should move and resize the box accordingly, until releasing it.
-* When dragging "main"'s left or right border only the width should be affected.
-* When dragging "main"'s top or bottom border only the height should be affected.
-* Scaling "main" by dragging it's borders shouldn't move the box. The only border that should move is the one being dragged.
-* Scaling takes priority over moving. For example, if "header" is located over the top 5px of "main", pressing the top 5px of "main" and dragging it should resize it, *but shoud not move it!*
-* When pressing the mouse-left-button over "main" less then 5px from it's corner (for example: less then 5px from it's left border *and* less then 5px from it's top border), and then dragging, the corner should move and resize the box accordingly, until releasing it.
-* Scaling "main" by dragging it's corners shouldn't move the box. That means that the opposite corner to the one that's being dragged should stay put.
-* When dragging one of "main"'s corners and moving the mouse only horizontally, "main"'s height shoudn't be affected.
-* When dragging one of "main"'s corners and moving the mouse only vertically, "main"'s width shoudn't be affected.
-* Scailing "main"'s width and height to less then 100px each shouldn't be possible.
-* While resizing, the box shouldn't grow beyond the borders. If it touches any border it cannot grow to that direction any more
+* ``index.html`` - a ready div with the id ``playground`` for you and a div with the id of ``main`` which includes another div inside with the id ``header``.
+
+* ``stlye.css`` - ready css that styles our playground.
+
+* ``index.js`` - Where the fun happens!!!
+
+The playground as you get it:
+
+(picture)
+
+Your mission, if you choose to accept it, is to make the div ``main`` moveabble and resizeable by dragging it's edges with mouse.
+
+Example:
+
+![Example](solution.gif)
+
+Write your solution in the file ``index.js``. You are allowed to add code also to ``index.html`` and ``style.css``, **but it is important you do not change any of our code, only add yours below (or tests might fail).**
+
+## Requirements
+* I am able to drag the div ``main`` when clicking the div ``header`` and moving the mouse around.
+
+* I am able to resize the div ``main`` horrizonally or vertically by dragging it's edges (the black stripes inside div ``main`` in the gif).
+
+* I am able to resize the div ``main`` horrizonally and vertically by dragging it's corners (the pink squares inside div ``main`` in the gif).
+
+* When dragging ``main``'s left or right border **only the width** should be affected.
+
+* When dragging ``main``'s top or bottom border **only the height** should be affected.
+
+* div ``main`` should have a minimum of 150x150 size and can not be resized to less.
+
+* The resizers must be **inside** the div ``main``.
+
+* The resizing areas *must* be **at least** 5px thick. 
+
+* Dragging and resizing should not happen simultaneously!
+
+* The div ``main`` shouldn't cross the ``playground`` borders at any situation.
+
+* When the mouse isn't preesed nothing should happen.
+
+
+
