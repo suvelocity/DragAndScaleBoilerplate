@@ -23,7 +23,7 @@ describe("dragging box", () => {
 
     await page.mouse.move(left, top);
     await page.mouse.down();
-    await page.mouse.move(2 * left, 2 * top);
+    await page.mouse.move(left + 20, top + 20);
     await page.mouse.up();
 
     const { newTop, newLeft } = await page.evaluate((header) => {
@@ -31,8 +31,8 @@ describe("dragging box", () => {
       return { newTop: top + header.clientHeight / 2, newLeft: left + header.clientWidth / 2 };
     }, header);
 
-    expect(newLeft).toBe(2 * left)
-    expect(newTop).toBe(2 * top)
+    expect(newLeft).toBe(left + 20)
+    expect(newTop).toBe(top + 20)
 
     await browser.close();
   });
@@ -49,8 +49,8 @@ describe("dragging box", () => {
 
     const playground = await page.$('#playground');
     const { playTop, playLeft, playBottom, playRight } = await page.evaluate((playground) => {
-      let { top, left, right, bottom } = box.getBoundingClientRect();
-      return { playTop: top, playLeft: left, playtBottom: bottom, playRight: right };
+      let { top, left, right, bottom } = playground.getBoundingClientRect();
+      return { playTop: top, playLeft: left, playBottom: bottom, playRight: right };
     }, playground);
 
     const box = await page.$('#main');
@@ -61,25 +61,44 @@ describe("dragging box", () => {
 
     const header = await page.$('#header');
 
-    const { y, x } = await page.evaluate((header) => {
+    const { y, x, headerWidth, headerHeight } = await page.evaluate((header) => {
       let { top, left, width, height } = header.getBoundingClientRect();
       return { y: top + height / 2, x: left + width / 2, headerWidth: width, headerHeight: height };
     }, header);
 
+    const boxOnBorderRight = playRight - boxWidth + headerWidth / 2;
+    const boxOnBorderBottom = playBottom - boxHeight + headerHeight / 2;
+    const boxOnBorderLeft = playLeft + headerWidth / 2;
+    const boxOnBorderTop = playTop + headerHeight / 2;
+
     await page.mouse.move(x, y);
     await page.mouse.down();
-    await page.mouse.move(playBottom, playRight);
+    await page.mouse.move(boxOnBorderRight, boxOnBorderBottom);
+    await page.mouse.move(boxOnBorderRight + 10, boxOnBorderBottom + 10);
     await page.mouse.up();
 
-    const { newTop, newLeft } = await page.evaluate((box) => {
+    const { onBottomRightCornerTop, onBottomRightCornerLeft } = await page.evaluate((box) => {
       const { top, left } = box.getBoundingClientRect();
-      return { newTop: top, newLeft: left };
+      return { onBottomRightCornerTop: top, onBottomRightCornerLeft: left };
     }, box);
 
-    expect(newLeft).toBe(playRight - boxWidth);
-    expect(newTop).toBe(playBottom - boxHeight);
+    expect(onBottomRightCornerLeft).toBe(playRight - boxWidth);
+    expect(onBottomRightCornerTop).toBe(playBottom - boxHeight);
+
+    await page.mouse.move(onBottomRightCornerLeft + headerWidth / 2, onBottomRightCornerTop + headerHeight / 2);
+    await page.mouse.down();
+    await page.mouse.move(boxOnBorderLeft, boxOnBorderTop);
+    await page.mouse.move(boxOnBorderLeft - 10, boxOnBorderTop - 10);
+    await page.mouse.up();
+
+    const { onTopLeftCornerTop, onTopLeftCornerLeft } = await page.evaluate((box) => {
+      const { top, left } = box.getBoundingClientRect();
+      return { onTopLeftCornerTop: top, onTopLeftCornerLeft: left };
+    }, box);
+
+    expect(onTopLeftCornerLeft).toBe(playLeft);
+    expect(onTopLeftCornerTop).toBe(playTop);
 
     await browser.close();
   })
-
 })
