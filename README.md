@@ -12,7 +12,7 @@ Clone [this](https://github.com/suvelocity/DragAndScaleBoilerplate) repository t
 
 The playground as you get it:
 
-(picture)
+![playground](playground.jpeg)
 
 Your mission, if you choose to accept it, is to make the div ``main`` moveabble and resizeable by dragging it's edges with mouse.
 
