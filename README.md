@@ -22,6 +22,7 @@ Example:
 
 Write your solution in the file ``index.js``. You are allowed to add code also to ``index.html`` and ``style.css``, **but it is important you do not delete any of our code, only add yours below (or tests might fail).**
 
+
 ## Requirements
 * I am able to drag the div ``main`` when clicking the div ``header`` and moving the mouse around.
 
@@ -44,6 +45,10 @@ Write your solution in the file ``index.js``. You are allowed to add code also t
 * The div ``main`` shouldn't cross the ``playground`` borders at any situation.
 
 * When the mouse isn't preesed nothing should happen.
+
+**Important Note!**
+
+To make the tests work, and smoothen performance, make sure you attach the onmousemove event to the **document _and not_ the element**. By doing it, the event will keep tracking the mouse movement even if it exited  the element's bounds.
 
 ## Resources
 You might wanna remind yourself of one of the following subjects:
