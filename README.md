@@ -20,7 +20,7 @@ Example:
 
 ![Example](solution.gif)
 
-Write your solution in the file ``index.js``. You are allowed to add code also to ``index.html`` and ``style.css``, **but it is important you do not change any of our code, only add yours below (or tests might fail).**
+Write your solution in the file ``index.js``. You are allowed to add code also to ``index.html`` and ``style.css``, **but it is important you do not delete any of our code, only add yours below (or tests might fail).**
 
 ## Requirements
 * I am able to drag the div ``main`` when clicking the div ``header`` and moving the mouse around.
@@ -44,6 +44,55 @@ Write your solution in the file ``index.js``. You are allowed to add code also t
 * The div ``main`` shouldn't cross the ``playground`` borders at any situation.
 
 * When the mouse isn't preesed nothing should happen.
+
+## Resources
+You might wanna remind yourself of one of the following subjects:
+
+[About mouse events](https://javascript.info/mouse-events-basics)
+
+[Mouse event types and Mouse event object Reference](https://www.w3schools.com/jsref/obj_mouseevent.asp)
+
+
+
+# Spoilers!!!!!!
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+Soon!
+
 
 
 
